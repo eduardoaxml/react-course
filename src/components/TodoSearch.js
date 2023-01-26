@@ -2,10 +2,10 @@ import React from 'react';
 import '../css/TodoSearch.css';
 
 
-function TodoSearch() {
+function TodoSearch({ searchValue, setSearchValue }) {
 
     // ['variable donde guarda el valor', 'funcion para actualizar el valor '] = creamos un estado que por defecto será un valor vacío
-    const [searchValue, setSearchValue] = React.useState('');
+    // const [searchValue, setSearchValue] = React.useState('');
 
     const onSearchValueChange = (event) => {
         console.log(event.target.value);
@@ -17,8 +17,7 @@ function TodoSearch() {
             placeholder="Cebolla"
             value={searchValue}
             onChange={onSearchValueChange}
-        />,
-        <p>{searchValue}</p>
+        />
     );
 }
 export { TodoSearch };
