@@ -11,6 +11,7 @@ function TodoProvider(props) {
         error,
     } = useLocalStorage('TODOS_V1', []);
     const [searchValue, setSearchValue] = React.useState('');
+    const [openModal, setOpenModal] = React.useState(false);
 
     const completedTodos = todos.filter(todo => !!todo.completed).length;
     const totalTodos = todos.length;
@@ -42,19 +43,20 @@ function TodoProvider(props) {
     };
   
     return (
-        /* Envuelve a todos los componentes y lo que queremos compartir */
         <TodoContext.Provider value={{
-        loading,
-        error,
-        totalTodos,
-        completedTodos,
-        searchValue,
-        setSearchValue,
-        searchedTodos,
-        completeTodo,
-        deleteTodo,
-        }}>
-        {props.children}
+            loading,
+            error,
+            totalTodos,
+            completedTodos,
+            searchValue,
+            setSearchValue,
+            searchedTodos,
+            completeTodo,
+            deleteTodo,
+            openModal,
+            setOpenModal,
+            }}>
+            {props.children}
         </TodoContext.Provider>
     );
 }
