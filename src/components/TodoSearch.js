@@ -1,9 +1,10 @@
 import React from 'react';
+import { TodoContext } from '../components/TodoContext';
 import '../css/TodoSearch.css';
 
 
-function TodoSearch({ searchValue, setSearchValue }) {
-
+function TodoSearch() {
+    const { searchValue, setSearchValue } = React.useContext(TodoContext);
     // ['variable donde guarda el valor', 'funcion para actualizar el valor '] = creamos un estado que por defecto será un valor vacío
     // const [searchValue, setSearchValue] = React.useState('');
 
